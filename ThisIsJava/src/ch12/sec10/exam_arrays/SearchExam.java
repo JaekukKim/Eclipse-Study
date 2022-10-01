@@ -15,9 +15,9 @@ public class SearchExam {
 		System.out.println();
 
 		// 문자열 검색
-		String[] names = { "김재국", "이준호", "정의태", "김준걸" };
+		String[] names = { "김재국", "이준호", "정의태", "겨울이" };
 		Arrays.sort(names);
-		int index2 = Arrays.binarySearch(names, "김준걸");
+		int index2 = Arrays.binarySearch(names, "겨울이");
 		System.out.println(Arrays.toString(names));
 		System.out.println("찾는 값의 인덱스는? : " + index2);
 
