@@ -1,0 +1,22 @@
+*문제 풀이 : 중복 제거하기
+
+	ANIMAL_INS 테이블은 동물 보호소에 들어온 동물의 정보를 담은 테이블입니다.
+	ANIMAL_INS 테이블 구조는 다음과 같으며,
+	ANIMAL_ID, ANIMAL_TYPE, DATETIME, INTAKE_CONDITION, NAME, SEX_UPON_INTAKE는
+	각각 동물의 아이디, 생물 종, 보호 시작일, 보호 시작 시 상태, 이름, 성별 및 중성화 여부를 나타냅니다.
+	
+	동물 보호소에 들어온 동물의 이름은 몇 개인지 조회하는 SQL 문을 작성해주세요.
+	이때 이름이 NULL인 경우는 집계하지 않으며 중복되는 이름은 하나로 칩니다.
+	
+	//COUNT 문법과 DISTINCT 문법이 핵심이다. DISTINCT 문법은 중복을 제거해주는 문법이다.
+	//COUNT 문법과 DISTINCT 가로열(컬럼) 을 이용해 중복 이름 제거가 가능하다!
+	//그리고 WHERE조건문으로 NULL이 아닌것을 뽑아내면 된다.
+	//시작해보자
+	
+	SELECT COUNT(DISTINCT NAME) // 중복이름 제거 카운팅
+	FROM ANIMAL_INS
+	WHERE NAME IS NOT NULL
+	
+	//완성!
+	
+	

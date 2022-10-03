@@ -1,4 +1,4 @@
-package Programmers;
+package Programmers.java;
 
 public class EachPlusFromProg {
 	public class Solution {
