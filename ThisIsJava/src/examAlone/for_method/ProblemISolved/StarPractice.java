@@ -27,11 +27,12 @@ public class StarPractice {
 		// 공백은 첫째줄에 0개, 둘째줄에 1개 셋째줄에 2개. i(줄 수) -1 = 공백의 갯수 이다.
 		
 		for (int i = 0; i < line; i++) { // 라인 설정
-			for (int j = 1; j <= i; j++) { // 공백 설정
+			for (int j = 0; j < i; j++) { // 공백 설정
 				System.out.print(" ");
 			}
 			for (int k = (2 * line - 1); k >= i * 2 + 1; k--) {
 				// 별을 먼저 "찍고" 내려가야한다. 그래서 k의 증감식은 --이다.
+				// 별의 갯수는 위에서 말했듯이 2*line-1이다. 별의 갯수를 찍고 
 				System.out.print("*");
 			}
 			System.out.println();
