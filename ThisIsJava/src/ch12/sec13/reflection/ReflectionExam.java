@@ -6,6 +6,7 @@ import java.lang.reflect.Method;
 
 public class ReflectionExam {
 	public static void main(String[] args) {
+
 		Class cls = RefExam.class;
 		// 클래스 객체를 클래스로부터 얻는 선언.
 
@@ -18,7 +19,7 @@ public class ReflectionExam {
 			System.out.print(constructor.getName() + "(");
 			// getName()메소드를 호출하여 배열안에 있는 메소드들 차례로 출력.
 			Class[] parameters = constructor.getParameterTypes();
-			// getParameterTypes() 메소드를 이용하여 생성자 배열에 있는 파라미터를 호출한다.
+			// getParameterTypes() 메소드를 이용하여 생성자 배열에 있는 파라미터를 배열에 저장한다음 호출한다.
 			printParameters(parameters);
 			// 아래 생성자와 메소드의 매개변수를 출력하는 정적메소드를 호출하여 파라미터의 이름을 출력한다.
 			System.out.println(")");
@@ -30,12 +31,15 @@ public class ReflectionExam {
 		Field[] fields = cls.getDeclaredFields();
 		// 필드의 정보를 읽는 메소드 호출
 		for (Field field : fields) {
-			System.out.println(field.getType() + " " + field.getName() + " ");
-			// 필드
+			System.out.println(field.getType().getName() + " " + field.getName() + " ");
+			// 메소드 체이닝으로 필드의 타입과이름을 동시에 받았다.(앞부분)
+			// 하지만 타입이 String라서 String.getName()이 되어 패키지를 포함한 전체 이름이 출력되었다.
+			// 뒷부분은 필드의 이름이 호출된다.
 		}
 		System.out.println();
 
 		System.out.println("--메소드 정보--");
+		// 메소드 정보는 위의 생성자 정보 호출과 동일한 구조이다.
 		Method[] methods = cls.getDeclaredMethods();
 		for (Method method : methods) {
 			System.out.print(method.getName() + "(");
