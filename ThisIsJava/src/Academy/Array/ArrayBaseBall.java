@@ -14,7 +14,8 @@ public class ArrayBaseBall {
 		boolean randomBall = true;
 
 		Scanner sc = new Scanner(System.in);
-
+		// 스캐너 같은 경우는 메모리 누수를 방지하기 위하여 close()메소드를 사용하여 닫아주어야 한다.
+		
 		for (int i = 0; i < comNum.length; i++) {
 			comNum[i] = (int) (Math.random() * 9) + 1;
 			if (i > 0) {
@@ -90,6 +91,7 @@ public class ArrayBaseBall {
 				randomBall = true;
 			}
 		}
+		sc.close();
 	}
 
 }
