@@ -62,12 +62,9 @@ public class PrintExam {
 
 				// [3] 메소드들을 호출.
 				
-				try {
-					anoMethod.invoke(new Service());
-				} catch (Exception e) {
-				}
 				
-				System.out.println();
+				anoMethod.invoke(new Service());
+				
 				// 이 코드는 우리가 질리도록 썼던 아래의 코드와 같다.
 				
 				// Service service = new Service();
