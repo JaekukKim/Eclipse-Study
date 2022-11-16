@@ -3,6 +3,7 @@ package ch14.thread;
 public class RamenCook implements Runnable{
 	// 처음 라면의 갯수.
 	private int ramenCount;
+	
 	// 각 라면을 끓일 버너를 배열로 지정.
 	private String[] burners = {"_","_","_","_"};
 	
@@ -11,7 +12,7 @@ public class RamenCook implements Runnable{
 		this.ramenCount = ramenCount;
 	}
 	
-	// 
+	// run메소드 오버라이딩.
 	@Override
 	public void run() {
 		while (ramenCount > 0) {
@@ -25,8 +26,8 @@ public class RamenCook implements Runnable{
 					continue;
 					
 				}
-				// 라면이 조리 될 동안 버너를 막 건들면 안된다, synchronized를 이용해 동기화 시키면 작업이 완료될 때 까지
-				// 해당 코드는 다른 쓰레드에서 관여 할 수 없다.
+				// 라면이 조리 될 동안 버너를 막 건들면 안된다.
+				// synchronized를 이용해 동기화 시키면 작업이 완료될 때 까지 해당 코드는 다른 쓰레드에서 관여 할 수 없다.
 				synchronized (this) {
 					burners[i] = Thread.currentThread().getName();
 					System.out.println(Thread.currentThread().getName() + ": 조리 시작 [ "+ (i+1) + " ] 번 버너 ON");
