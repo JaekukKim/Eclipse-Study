@@ -28,8 +28,13 @@ public class ScottSelectEmpTable {
 			System.out.println();
 			
 			while (rs.next()) {
+				// while문으로 데이터를 하나씩 가져온다. 데이터는 eof까지 도달하면 while문을 빠져나온다.
+				// 데이터를 가져올때는 워크벤치나 커맨드라인에서 꼭 use 스키마명 -> desc 불러올테이블명 을 하여 각 컬럼의 타입이 무엇인지 보고 맞춰주어야한다.
+				// 데이터를 가져오는 방식은 조금 특이하다. get기본타입(or클래스)로 가져오는데. 괄호 안에 문자열로 들어가있다...?
+				// 자바는 외부의 데이터를 "문자열"로 인식한다. 그래서 매개변수(컬럼명(키))를 문자열로 넣어주었다.
+				// 만약 "몇번째"인지 정확히 기억을 한다면 안에 그냥 숫자만 넣어서 몇번째를 가져올건지, (ex getInt(1);)이런식으로다가 가능하다.
 				int empno = rs.getInt("EMPNO"); // 컬럼명
-				String ename = rs.getString("ENAME"); // 몇번째 컬럼인지.
+				String ename = rs.getString(2); // 몇번째 컬럼인지(이 줄은 ENAME). (안에 순서(정수타입으로)도 가능하다)
 				String job = rs.getString("JOB");
 				int mgr = rs.getInt("MGR");
 				Date hiredate = rs.getDate("HIREDATE");
